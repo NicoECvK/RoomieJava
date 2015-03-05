@@ -34,7 +34,15 @@
 </head>
 
 <body>
-
+	<%@ page import ="java.util.ArrayList" %>
+	<%@ page import ="databaseInteractor.DatabaseInteractor" %>
+	<%@ page import ="databaseInteractor.House" %>
+	<% String houseName = request.getParameter("houseName");
+	System.out.println(houseName);
+	ServletContext context = request.getServletContext();
+	DatabaseInteractor dbInteractor = (DatabaseInteractor) context.getAttribute("dbInteractor");
+	House house = dbInteractor.searchHouseByName(houseName); 
+	String imageFileName = house.imageFileName; %>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
@@ -46,7 +54,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Roomie</a>
+                <a class="navbar-brand" href="index.jsp">Roomie</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -73,12 +81,12 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/Durand.jpg')">
+    <header class="intro-header" style="background-image: url('img/<%=imageFileName%>')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Durand</h1>
+                        <h1><%= house.houseName %></h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">634 Mayfield Avenue<a href="#"></a></span>
                     </div>
@@ -95,15 +103,14 @@
 
                     <div class="desc-title">Basic Information</div>
                     <div class="desc-text">
-                        Tier 1<br>Self Op <br>Upper Row <br> 34 Residents
+                        Tier <%= house.tier %><br><%= house.houseType %> <br><%= house.location %> <br> 34 Residents
 
                     </div>
 
                     <div class="text_line"></div>
 
                     <div class="desc-title">Description</div>
-                    <div class="desc-text">A themed Row house, La Maison Française is an undergraduate residence that serves as a campus French center. The French House tends to draw a more equal number of smaller sophomore, junior, and senior draw groups than other Row houses.The French House traditionally has a high percentage of returning residents who help to maintain the culture and spirit of the house. Finally, since French House is a relatively small house, the staff to resident ratio is larger than that of other Row Houses, which generates a different staff-resident dynamic.</div>
-
+                    <div class="desc-text"><%= house.text %></div>
                    
                 </div>
             <!-- </div> -->

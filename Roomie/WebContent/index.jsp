@@ -168,7 +168,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
-                    <a href="Durand.jsp">
+                    <a href="HouseProfile.jsp?houseName=Durand">
                         <div class="thumb-house"><img src="img/houses-thumb/Durand-thumb.jpg"></div>
                         <h2 class="post-title">
                             Durand
@@ -182,7 +182,7 @@
                 </div>
                 <hr>
                 <div class="post-preview">
-                    <a href="post.html">
+                    <a href="HouseProfile.jsp?houseName=717">
                         <div class="thumb-house"><img src="img/houses-thumb/717-thumb.jpg"></div>
                         <h2 class="post-title">
                             717
@@ -196,7 +196,7 @@
                 </div>
                 <hr>
                 <div class="post-preview">
-                    <a href="post.html">
+                    <a href="HouseProfile.jsp?houseName=Kairos">
                         <div class="thumb-house"><img src="img/houses-thumb/Kairos-thumb.jpg"></div>
                         <h2 class="post-title">
                             Kairos
@@ -210,7 +210,7 @@
                 </div>
                 <hr>
                <div class="post-preview">
-                    <a href="post.html">
+                    <a href="HouseProfile.jsp?houseName=La Maison Française (French House)">
                         <div class="thumb-house"><img src="img/houses-thumb/French-thumb.jpg"></div>
                         <h2 class="post-title">
                             French House

@@ -5,7 +5,47 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.util.ArrayList;
 
+import databaseConnection.DatabaseConnection;
+
 public class DatabaseInteractor {
+	
+	
+	DatabaseConnection dbConnection;
+
+	public DatabaseInteractor() {
+		dbConnection = new DatabaseConnection();
+	}
+	
+	
+	/**
+	 * Queries the database for the House that has the supplied houseName.
+	 * If houseName is "" returns all Houses.
+	 * @param houseName that is being searched for.
+	 * @return  The House that matches the houseName.
+	 * @author NicoECvK
+	 */
+	public House searchHouseByName(String houseName) {		
+		String query = "SELECT * FROM House WHERE houseName = ?";
+		ArrayList<Object> resultArray = new ArrayList<Object>();
+		resultArray = constructResultArray("house", query, houseName);
+		ArrayList<House> resultingHouses = new ArrayList<House>();
+		fromObjectALToOtherAL(resultArray, resultingHouses);
+		return resultingHouses.get(0);
+	}
+	
+	
+	/**
+	 * Gets all Houses from the database.
+	 * @return ArrayList of all houses.
+	 */
+	public ArrayList<House> getAllHouses() {
+		String query = "SELECT * FROM House";
+		ArrayList<Object> resultArray = new ArrayList<Object>();
+		resultArray = constructResultArray("house", query);
+		ArrayList<House> resultingHouses = new ArrayList<House>();
+		fromObjectALToOtherAL(resultArray, resultingHouses);
+		return resultingHouses;
+	}
 	
 	
 	/**
@@ -24,8 +64,8 @@ public class DatabaseInteractor {
 			ArrayList<Object> resultArray = null;
 			
 			// Queries the Quiz relation and returns Quiz objects.
-			if (queryType.equals("quiz")) {
-				resultArray = parseQuizArray(rs);
+			if (queryType.equals("house")) {
+				resultArray = parseHouseArray(rs);
 			}
 			
 
@@ -52,21 +92,23 @@ public class DatabaseInteractor {
 	
 	
 	/**
-	 * Parses a ResultSet containing achievements into an ArrayList of Strings.
+	 * Parses a ResultSet containing houses into an ArrayList of Houses.
 	 * @param ResultSet to be parsed.
-	 * @return ArrayList of achievement Strings contained in the ResultSet.
+	 * @return ArrayList of achievement Houses contained in the ResultSet.
 	 * @author NicoECvK
 	 */
-	private ArrayList<Object> parseAchievementArray(ResultSet rs) {
+	private ArrayList<Object> parseHouseArray(ResultSet rs) {
 		try {
 			ArrayList<Object> resultingAchievements = new ArrayList<Object>();
 			while (rs.next()) {
-				String username = rs.getString("username");
-				String achievementStr = rs.getString("achievement");
-				Time creationTime = rs.getTime("creationTime");
-				Achievement achievement = new Achievement(username, achievementStr);
-				achievement.creationTime = creationTime;
-				resultingAchievements.add(achievement);
+				String houseName = rs.getString("houseName");
+				String houseType = rs.getString("houseType");
+				String location = rs.getString("location");
+				String tier = rs.getString("tier");
+				String imageFileName = rs.getString("imageFileName");
+				String text = rs.getString("text");
+				House house = new House(houseName, houseType, location, tier, imageFileName, text);
+				resultingAchievements.add(house);
 			}
 			return resultingAchievements;
 		} catch (SQLException e) {

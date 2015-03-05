@@ -18,9 +18,9 @@ text TEXT
 
 INSERT INTO House VALUES
 --("Jerry", "Self-Op", "Lake", 1),
-("Durand", "Self-Op", "Upper Row", 1, "Durand.jpg", "Durand is cool"),
-("717", "Self-Op", "Upper Row", 1, "717.jpg", "717 is cool"),
-("Kairos", "Self-Op", "Upper Row", 1, "Kairos.jpg", , "Kairos is cool");
+("Durand", "Self-Op", "Upper Row", "1", "Durand.jpg", "Durand is cool"),
+("717", "Self-Op", "Upper Row", "1", "717.jpg", "717 is cool"),
+("Kairos", "Self-Op", "Upper Row", "1", "Kairos.jpg", , "Kairos is cool");
 
 
 CREATE TABLE Comment (

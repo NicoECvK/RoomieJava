@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import ="java.util.ArrayList" %>
+	<%@ page import ="databaseInteractor.DatabaseInteractor" %>
+	<%@ page import ="databaseInteractor.House" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -166,63 +169,32 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="HouseProfile.jsp?houseName=Durand">
-                        <div class="thumb-house"><img src="img/houses-thumb/Durand-thumb.jpg"></div>
-                        <h2 class="post-title">
-                            Durand
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="HouseProfile.jsp?houseName=717">
-                        <div class="thumb-house"><img src="img/houses-thumb/717-thumb.jpg"></div>
-                        <h2 class="post-title">
-                            717
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="HouseProfile.jsp?houseName=Kairos">
-                        <div class="thumb-house"><img src="img/houses-thumb/Kairos-thumb.jpg"></div>
-                        <h2 class="post-title">
-                            Kairos
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
-                <hr>
-               <div class="post-preview">
-                    <a href="HouseProfile.jsp?houseName=La Maison Française (French House)">
-                        <div class="thumb-house"><img src="img/houses-thumb/French-thumb.jpg"></div>
-                        <h2 class="post-title">
-                            French House
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
-                        </h3>
-
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
-                <hr>
+        	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <% ServletContext context = request.getServletContext();
+    	DatabaseInteractor dbInteractor = (DatabaseInteractor) context.getAttribute("dbInteractor");
+    	ArrayList<House> allHouses = dbInteractor.getAllHouses();
+    	for(House house : allHouses) {
+    		String houseName = house.houseName;
+    		
+    		out.print("<div class=\"post-preview\">");
+    		out.print("<a href=\"HouseProfile.jsp?houseName=" + houseName + "\">");
+    		out.print("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>");
+    		System.out.println("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>");
+    		out.print("<h2 class=\"post-title\">");
+    		out.print(houseName);
+    		out.print("</h2>");
+    		out.print("<h3 class=\"post-subtitle\">");
+    		out.print("Problems look mighty small from 150 miles up");
+    		out.print("</h3>");
+    		out.print("</a>");
+    		out.print("<p class=\"post-meta\">Posted by <a href=\"#\">Start Bootstrap</a> on September 24, 2014</p>");
+    		out.print("</div>");
+    		out.print("<hr>");
+    	}
+    	%>
+            
+                
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="next">

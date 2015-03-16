@@ -91,7 +91,11 @@ public class DatabaseInteractor {
 		resultArray = constructResultArray("house", query, houseName);
 		ArrayList<House> resultingHouses = new ArrayList<House>();
 		fromObjectALToOtherAL(resultArray, resultingHouses);
-		return resultingHouses.get(0);
+		if(resultingHouses.size() != 0) {
+			return resultingHouses.get(0);
+		} else {
+			return null;
+		}
 	}
 	
 	

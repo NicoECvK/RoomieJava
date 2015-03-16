@@ -1,7 +1,5 @@
 package databaseConnection;
 
-import static org.junit.Assert.*;
-
 import java.sql.*;
 
 import org.junit.Before;

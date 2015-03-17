@@ -176,13 +176,15 @@
     	ArrayList<House> allHouses = dbInteractor.getAllHouses();
     	for(House house : allHouses) {
     		String houseName = house.houseName;
+    		String printName = houseName;
+    		if(printName.equals("La Maison Francaise")) printName = "La Maison Française";
     		
     		out.print("<div class=\"post-preview\">");
     		out.print("<a href=\"HouseProfile.jsp?houseName=" + houseName + "\">");
     		out.print("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>");
     		System.out.println("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>");
     		out.print("<h2 class=\"post-title\">");
-    		out.print(houseName);
+    		out.print(printName);
     		out.print("</h2>");
     		out.print("<h3 class=\"post-subtitle\">");
     		out.print("Problems look mighty small from 150 miles up");

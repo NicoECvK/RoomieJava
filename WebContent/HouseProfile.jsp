@@ -42,6 +42,10 @@
 	ServletContext context = request.getServletContext();
 	DatabaseInteractor dbInteractor = (DatabaseInteractor) context.getAttribute("dbInteractor");
 	House house = dbInteractor.searchHouseByName(houseName); 
+	if(house == null) {
+		response.sendRedirect("http://localhost:8080/Roomie/index.jsp");
+		return;
+	}
 	String imageFileName = house.imageFileName; %>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">

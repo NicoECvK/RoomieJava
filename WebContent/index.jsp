@@ -47,17 +47,13 @@
         <div id="sidebar-wrapper">
    
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Filters
-                    </a>
-                </li>
-                <li>
+                
+             <li>
                     <a href="#">Housing Type </a>
                     <div class="sub-filters">
                         <ul>
-                        <li>
-                                  <div class="checkbox checkbox-info">
+                        	<li>
+                                  <div class="checkbox checkbox-danger">
                                     <input type="checkbox" id="checkbox1">
                                     <label for="checkbox1">
                                         Dorms
@@ -66,20 +62,29 @@
                             </li>
 
 
-                              <li>
-                                  <div class="checkbox checkbox-info">
+                             <li>
+                                  <div class="checkbox checkbox-danger">
                                     <input type="checkbox" id="checkbox2">
                                     <label for="checkbox2">
-                                      Appartments 
+                                      Apartments 
                                     </label>
                                   </div>
                             </li>
 
                             <li>
-                                  <div class="checkbox checkbox-info">
+                                  <div class="checkbox checkbox-danger">
                                     <input type="checkbox" id="checkbox3">
                                     <label for="checkbox3">
-                                     Houses 
+                                     Self-ops 
+                                    </label>
+                                  </div>
+                            </li>
+                            
+                            <li>
+                                  <div class="checkbox checkbox-danger">
+                                    <input type="checkbox" id="checkbox4">
+                                    <label for="checkbox4">
+                                     Co-ops 
                                     </label>
                                   </div>
                             </li>
@@ -88,12 +93,37 @@
                 </li>
                 <li>
                     <a href="#">Tier</a>
-                   <!--  <div class="sub-filters">
-                        <ul>
-                            <li>Tier One</li>
-                            <li>Tier Two</li>
-                            <li>Tier Three</li>
-                    </div> -->
+                    <div class="sub-filters">
+	                   <ul>
+	                   		<li>
+                                  <div class="checkbox checkbox-danger">
+                                    <input type="checkbox" id="checkbox5">
+                                    <label for="checkbox5">
+                                        Tier 1
+                                    </label>
+                                  </div>
+                            </li>
+
+
+                              <li>
+                                  <div class="checkbox checkbox-danger">
+                                    <input type="checkbox" id="checkbox6">
+                                    <label for="checkbox6">
+                                      Tier 2 
+                                    </label>
+                                  </div>
+                          	  </li>
+
+                            <li>
+                                  <div class="checkbox checkbox-danger">
+                                    <input type="checkbox" id="checkbox7">
+                                    <label for="checkbox7">
+                                     Tier 3 
+                                    </label>
+                                  </div>
+                            </li>
+	                   </ul>
+	                   </div>
                 </li>
                 <li>
                     <a href="#">Location</a>
@@ -142,6 +172,13 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	<ul class="nav navbar-nav navbar-left">
+            		<li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    
+            	</ul>
+            	
                 <ul class="nav navbar-nav navbar-right">
                      <li>
                         <a href="index.html">Home</a>
@@ -232,32 +269,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
                     <p class="copyright text-muted">Copyright &copy; Roomie 2015</p>
                 </div>
             </div>

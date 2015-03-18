@@ -6,6 +6,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
+<link rel='stylesheet' type='text/css' href='css/global.css'>
+
 <head>
 
     <meta charset="utf-8">
@@ -27,6 +29,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link href="css/awesome-bootstrap-checkbox.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,9 +43,9 @@
 <body>
 
     <div id="wrapper">
-        
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
+   
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
@@ -53,22 +56,34 @@
                     <a href="#">Housing Type </a>
                     <div class="sub-filters">
                         <ul>
-                       <!--  <div class="filter-choices">
-                            <div class="checkbox"><input tabindex="-1" type="checkbox" name="Type" id="e1-52" class="cbx"></div>
-                            <div class="checkbox-label">Dorms</div>
-                        </div>
-                        <div class="filter-choices">
-                            <div class="checkbox"><input tabindex="-1" type="checkbox" name="Type" id="e1-52" class="cbx"></div>
-                            <div class="checkbox-label">Appartments</div>
-                        </div>
-                        <div class="filter-choices">
-                            <div class="checkbox"><input tabindex="-1" type="checkbox" name="Type" id="e1-52" class="cbx"></div>
-                            <div class="checkbox-label">Houses</div>
-                        </div> -->
+                        <li>
+                                  <div class="checkbox checkbox-info">
+                                    <input type="checkbox" id="checkbox1">
+                                    <label for="checkbox1">
+                                        Dorms
+                                    </label>
+                                  </div>
+                            </li>
 
-                            <li>Dorms</li>
-                            <li>Appartments</li>
-                            <li>Houses</li>
+
+                              <li>
+                                  <div class="checkbox checkbox-info">
+                                    <input type="checkbox" id="checkbox2">
+                                    <label for="checkbox2">
+                                      Appartments 
+                                    </label>
+                                  </div>
+                            </li>
+
+                            <li>
+                                  <div class="checkbox checkbox-info">
+                                    <input type="checkbox" id="checkbox3">
+                                    <label for="checkbox3">
+                                     Houses 
+                                    </label>
+                                  </div>
+                            </li>
+                       </ul>
                     </div>
                 </li>
                 <li>
@@ -111,6 +126,7 @@
         <!-- /#sidebar-wrapper -->
 
     <!-- Navigation -->
+    
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -127,17 +143,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-         <!--            <li>
+                     <li>
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="about.html">The Draw</a>
                     </li>
                     <li>
-                        <a href="post.html">Sample Post</a>
-                    </li> -->
-                    <li>
-                        <a href="contact.html">MyAccount</a>
+                        <a href="post.html">About</a>
+                    </li>
+                    	<li>
+                        <a href="contact.html">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -167,7 +183,9 @@
     </header>
 
     <!-- Main Content -->
+    <jsp:include page = 'header.jsp' />
     <div class="container">
+            
         <div class="row">
         	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         

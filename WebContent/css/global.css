@@ -20,9 +20,11 @@ h5{
 
 .headerWrapper {
 	height: 62px;
-	background-color: #4B3689;
+	background-color: #901808;
+	color:#FCFAE6;
 	line-height:40px;
 	padding:10px 20px;
+	margin-bottom: 50px;
 }
 
 .footer{
@@ -32,7 +34,7 @@ h5{
 	padding:10px 20px;
 	text-align:center;
 	margin-top:50px;
-	color:white;
+	color:#901808;
 }
 
 .headerWrapper a{

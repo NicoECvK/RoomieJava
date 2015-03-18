@@ -1,9 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
 <head>
+
+    <%@ page import ="java.util.ArrayList" %>
+    <%@ page import ="databaseInteractor.DatabaseInteractor" %>
+    <%@ page import ="databaseInteractor.House" %>
+    <%@ page import ="databaseInteractor.Comment" %>
+    <% String houseName = request.getParameter("houseName");
+    System.out.println(houseName);
+    ServletContext context = request.getServletContext();
+    DatabaseInteractor dbInteractor = (DatabaseInteractor) context.getAttribute("dbInteractor");
+    House house = dbInteractor.searchHouseByName(houseName); 
+    if(house == null) {
+        response.sendRedirect("http://localhost:8080/Roomie/index.jsp");
+        return;
+    }
+    String imageFileName = house.imageFileName; 
+    ArrayList<Comment> comments = dbInteractor.searchCommentByHouseName(houseName);%>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +25,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><%=request.getParameter("houseName")%></title>
+    <title><%= house.houseName%></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,19 +48,7 @@
 </head>
 
 <body>
-	<%@ page import ="java.util.ArrayList" %>
-	<%@ page import ="databaseInteractor.DatabaseInteractor" %>
-	<%@ page import ="databaseInteractor.House" %>
-	<% String houseName = request.getParameter("houseName");
-	System.out.println(houseName);
-	ServletContext context = request.getServletContext();
-	DatabaseInteractor dbInteractor = (DatabaseInteractor) context.getAttribute("dbInteractor");
-	House house = dbInteractor.searchHouseByName(houseName); 
-	if(house == null) {
-		response.sendRedirect("http://localhost:8080/Roomie/index.jsp");
-		return;
-	}
-	String imageFileName = house.imageFileName; %>
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
@@ -90,32 +92,85 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1><%= house.houseName %></h1>
+                        <h1><%= house.houseName%></h1>
                         <h2 class="subheading"></h2>
-                        <span class="meta">634 Mayfield Avenue<a href="#"></a></span>
+                        <span class="meta"><%= house.address%><a href="#"></a></span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
+    <article id="summary">
+         <div class="container">
+            <!-- <div class="row"> -->
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div>
+                        <div class="icon"><img src="img/tier-icon.png">&nbsp <%= house.tier%></div>
+                        <div class="icon"><img src="img/house-icon.png">&nbsp <%= house.houseType%></div>
+                        <div class="icon"><img src="img/residents-icon.png">&nbsp <%= house.numResidents%></div>
+                        <div class="icon"><img src="img/location-icon.png"><%= house.location%></div><br>
+                    </div><br>
+                </div>
+            <!-- </div> -->
+        </div>
+    <br></article>
+
     <!-- Post Content -->
-    <article>
+    <article id="description"><br>
         <div class="container">
             <!-- <div class="row"> -->
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
                     <div class="desc-title">Basic Information</div>
                     <div class="desc-text">
-                        Tier <%= house.tier %><br><%= house.houseType %> <br><%= house.location %> <br> 34 Residents
-
+                        Room Types: <%= house.roomTypes%><br>Staff: <%= house.houseStaffPositions%><br>Gender: <br>No Theme
                     </div>
 
                     <div class="text_line"></div>
 
                     <div class="desc-title">Description</div>
-                    <div class="desc-text"><%= house.text %></div>
-                   
+                    <div class="desc-text"><%= house.text%></div>
+
+                </div>
+            <!-- </div> -->
+        </div>
+    </article>
+
+    <article id="comments"><br>
+         <div class="container">
+            <!-- <div class="row"> -->
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <h3>Reviews</h3><br>
+
+                    <div class="desc-title" align="center">Summary</div>
+                    <div class="desc-text" id="star-align">Community<img src="img/stars.jpg" align="right"><br>Food<img src="img/stars.jpg" align="right"><br>Location<img src="img/stars.jpg" align="right"><br>Overall<img src="img/stars.jpg" align="right"></div>
+					
+					<% for(Comment comment : comments) {
+							out.println("<br><div class=\"text_line\"></div>");
+							out.println("<div class=\"desc-title\" align=\"center\">" + comment.username + "<img src=\"profile-pic.png\"><br><br></div><br>");
+							out.println("<div class=\"desc-text\"><i>" + comment.text + "</i></div>");
+					}%>
+                    <br><div class="text_line"></div>
+                    
+
+                    <form>
+                    <div class="form-group">
+                        <label for="inputEmail">User</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Comment</label>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <div class="checkbox">
+                        Community<img src="img/empty-stars.jpg">
+                        Food<img src="img/empty-stars.jpg">
+                        Location<img src="img/empty-stars.jpg">
+                        Overall<img src="img/empty-stars.jpg">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </form>
                 </div>
             <!-- </div> -->
         </div>
@@ -128,32 +183,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
                     <p class="copyright text-muted">Copyright &copy; Roomie 2015</p>
                 </div>
             </div>

@@ -176,8 +176,13 @@ public class DatabaseInteractor {
 				String location = rs.getString("location");
 				String tier = rs.getString("tier");
 				String imageFileName = rs.getString("imageFileName");
+				String thumbFileName = rs.getString("thumbFileName");
+				String address = rs.getString("address");
+				String roomTypes = rs.getString("roomTypes");
+				String houseStaffPositions = rs.getString("houseStaffPositions");
+				int numResidents = rs.getInt("numResidents");
 				String text = rs.getString("text");
-				House house = new House(houseName, houseType, location, tier, imageFileName, text);
+				House house = new House(houseName, houseType, location, tier, imageFileName, thumbFileName, address, roomTypes, houseStaffPositions, numResidents, text);
 				resultingAchievements.add(house);
 			}
 			return resultingAchievements;

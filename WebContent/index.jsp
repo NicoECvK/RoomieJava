@@ -29,6 +29,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link href="css/awesome-bootstrap-checkbox.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -55,22 +56,34 @@
                     <a href="#">Housing Type </a>
                     <div class="sub-filters">
                         <ul>
-                       <!--  <div class="filter-choices">
-                            <div class="checkbox"><input tabindex="-1" type="checkbox" name="Type" id="e1-52" class="cbx"></div>
-                            <div class="checkbox-label">Dorms</div>
-                        </div>
-                        <div class="filter-choices">
-                            <div class="checkbox"><input tabindex="-1" type="checkbox" name="Type" id="e1-52" class="cbx"></div>
-                            <div class="checkbox-label">Appartments</div>
-                        </div>
-                        <div class="filter-choices">
-                            <div class="checkbox"><input tabindex="-1" type="checkbox" name="Type" id="e1-52" class="cbx"></div>
-                            <div class="checkbox-label">Houses</div>
-                        </div> -->
+                        <li>
+                                  <div class="checkbox checkbox-info">
+                                    <input type="checkbox" id="checkbox1">
+                                    <label for="checkbox1">
+                                        Dorms
+                                    </label>
+                                  </div>
+                            </li>
 
-                            <li>Dorms</li>
-                            <li>Appartments</li>
-                            <li>Houses</li>
+
+                              <li>
+                                  <div class="checkbox checkbox-info">
+                                    <input type="checkbox" id="checkbox2">
+                                    <label for="checkbox2">
+                                      Appartments 
+                                    </label>
+                                  </div>
+                            </li>
+
+                            <li>
+                                  <div class="checkbox checkbox-info">
+                                    <input type="checkbox" id="checkbox3">
+                                    <label for="checkbox3">
+                                     Houses 
+                                    </label>
+                                  </div>
+                            </li>
+                       </ul>
                     </div>
                 </li>
                 <li>

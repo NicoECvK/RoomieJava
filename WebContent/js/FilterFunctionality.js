@@ -4,125 +4,261 @@
 
 $( document ).ready(function() {
     
+	var dorms = 0;
+	var apartments = 0;
+	var selfOps = 0;
+	var coOps = 0;
+	var tier1 = 0;
+	var tier2 = 0;
+	var tier3 = 0;
+	var lowerRow = 0;
+	var upperRow = 0;
+	var lakeHouses = 0;
+	var cowellCluster = 0;
+	
+	$( ".delete-class" ).each(function(i, obj) {
+		$(this).hide();
+	});
+	
+	
+	
+	// Returns an object with the names of all of the houses that fit into on of the checked categories.
+	function createHouseTypeObj() {
+		var houseTypeObj = {};
+		$( ".delete-class" ).each(function(i, obj) {
+			var id = this.id;
+			var htmlString = $(this).html();
+			if (dorms && htmlString.indexOf("Dorm") >= 0) {
+				houseTypeObj[id] = true;
+			}
+			if (apartments && htmlString.indexOf("Apartment") >= 0) {
+				houseTypeObj[id] = true;
+			}
+			if (selfOps && htmlString.indexOf("Self-Op") >= 0) {
+				houseTypeObj[id] = true;
+			}
+			if (coOps && htmlString.indexOf("Co-Op") >= 0) {
+				houseTypeObj[id] = true;
+			}
+		});
+		console.log(houseTypeObj);
+		return houseTypeObj;
+	}
+	
+	
+	// Returns an object with the names of all of the houses that fit into on of the checked categories.
+	function createTierObj() {
+		var tierObj = {};
+		$( ".delete-class" ).each(function(i, obj) {
+			var id = this.id;
+			var htmlString = $(this).html();
+			if (tier1 && htmlString.indexOf("Tier 1") >= 0) {
+				tierObj[id] = true;
+			}
+			if (tier2 && htmlString.indexOf("Tier 2") >= 0) {
+				tierObj[id] = true;
+			}
+			if (tier3 && htmlString.indexOf("Tier 3") >= 0) {
+				tierObj[id] = true;
+			}
+		});
+		console.log("tierObj: " + tierObj);
+		return tierObj;
+	}
+	
+	
+	// Returns an object with the names of all of the houses that fit into on of the checked categories.
+	function createLocationObj() {
+		var locationObj = {};
+		$( ".delete-class" ).each(function(i, obj) {
+			var id = this.id;
+			var htmlString = $(this).html();
+//			console.log("lower row: " + lowerRow);
+			if (lowerRow && htmlString.indexOf("Lower Row") >= 0) {
+				console.log("inside lower row for: " + id);
+				locationObj[id] = true;
+			}
+			if (upperRow && htmlString.indexOf("Upper Row") >= 0) {
+				console.log("inside upper row for: " + id);
+				locationObj[id] = true;
+			} 
+			if (lakeHouses && htmlString.indexOf("Lake House") >= 0) {
+				console.log("inside lake house for: " + id);
+				locationObj[id] = true;
+			}
+			if (cowellCluster && htmlString.indexOf("Cowell Cluster") >= 0) {
+				console.log("inside cowell cluster for: " + id);
+				locationObj[id] = true;
+			}
+		});
+//		console.log(locationObj);
+		return locationObj;
+	}
+	
+	
+	function createFinalObj() {
+		var houseTypeObj = createHouseTypeObj();
+		var tierObj = createTierObj();
+		var locationObj = createLocationObj();
+		console.log("HI");
+		var finalObj = {};
+		$( ".delete-class" ).each(function(i, obj) {
+			var id = this.id;
+			if(houseTypeObj[id] && tierObj[id] && locationObj[id]) {
+				console.log(id);
+				finalObj[id] = true;
+			}
+		});
+		return finalObj;
+	}
+	
+	
+	function displayHouses() {
+//		displayLocation();
+		var finalObj = createFinalObj();
+		$( ".delete-class" ).each(function(i, obj) {
+			$(this).hide();
+			var id = this.id;
+			if(finalObj[id]) {
+				$(this).show();
+			}
+		});
+	}
+	
+	
+	function displayLocation() {
+		var locationObj = createLocationObj();
+		console.log(locationObj);
+		$( ".delete-class" ).each(function(i, obj) {
+			$(this).hide();
+			var id = this.id;
+//			console.log(id);
+			if(locationObj[id]) {
+				console.log(id + "was found");
+				$(this).show();
+			}
+		});
+	}
+	
     
 //    Dorms
     $( "#checkbox1" ).click(function() {
-	    	$( ".delete-class" ).each(function(i, obj) {
-				var htmlString = $(this).html();
-				if (htmlString.indexOf("Dorm") <= 0) {
-					$(this).toggle();
-				}
-			});
+	    	if(dorms == 0) {
+	    		dorms = 1;
+	    	} else {
+	    		dorms = 0;
+	    	}
+	    	displayHouses();
     	});
     
     
 //  Apartments
     $( "#checkbox2" ).click(function() {
-	    	$( ".delete-class" ).each(function(i, obj) {
-				var htmlString = $(this).html();
-				if (htmlString.indexOf("Apartment") <= 0) {
-					$(this).toggle();
-				}
-			});
+	    	if(apartments == 0) {
+	    		apartments = 1;
+	    	} else {
+	    		apartments = 0;
+	    	}
+	    	displayHouses();
     	});
     
     
 //  Self-ops
     $( "#checkbox3" ).click(function() {
-    		$( ".delete-class" ).each(function(i, obj) {
-    			var htmlString = $(this).html();
-    			if (htmlString.indexOf("Self-Op") <= 0) {
-    				$(this).toggle();
-    			}
-    		});
+	    	if(selfOps == 0) {
+	    		selfOps = 1;
+	    	} else {
+	    		selfOps = 0;
+	    	}
+	    	displayHouses();
     	});
     
     
 //  Co-ops
     $( "#checkbox4" ).click(function() {
-    		$( ".delete-class" ).each(function(i, obj) {
-    			var htmlString = $(this).html();
-    			if (htmlString.indexOf("Co-Op") <= 0) {
-    				$(this).toggle();
-    			}
-    		});
+	    	if(coOps == 0) {
+	    		coOps = 1;
+	    	} else {
+	    		coOps = 0;
+	    	}
+	    	displayHouses();
     	});
     
     
 //  Tier 1
     $( "#checkbox5" ).click(function() {
-    		$( ".delete-class" ).each(function(i, obj) {
-    			var htmlString = $(this).html();
-    			if (htmlString.indexOf("Tier 1") <= 0) {
-    				$(this).toggle();
-    			}
-    		});
+	    	if(tier1 == 0) {
+	    		tier1 = 1;
+	    	} else {
+	    		tier1 = 0;
+	    	}
+	    	displayHouses();
     	});
     
     
 //  Tier 2
     $( "#checkbox6" ).click(function() {
-    		$( ".delete-class" ).each(function(i, obj) {
-    			var htmlString = $(this).html();
-    			if (htmlString.indexOf("Tier 2") <= 0) {
-    				$(this).toggle();
-    			}
-    		});
+	    	if(tier2 == 0) {
+	    		tier2 = 1;
+	    	} else {
+	    		tier2 = 0;
+	    	}
+	    	displayHouses();
     	});
     
     
 //  Tier 3
     $( "#checkbox7" ).click(function() {
-    		$( ".delete-class" ).each(function(i, obj) {
-    			var htmlString = $(this).html();
-    			if (htmlString.indexOf("Tier 3") <= 0) {
-    				$(this).toggle();
-    			}
-    		});
+	    	if(tier3 == 0) {
+	    		tier3 = 1;
+	    	} else {
+	    		tier3 = 0;
+	    	}
+	    	displayHouses()
     	});
     
     
 //  Lower Row
     $( "#checkbox8" ).click(function() {
-    		$( ".delete-class" ).each(function(i, obj) {
-    			var htmlString = $(this).html();
-    			if (htmlString.indexOf("Lower Row") <= 0) {
-    				$(this).toggle();
-    			}
-    		});
+	    	if(lowerRow == 0) {
+	    		lowerRow = 1;
+	    	} else {
+	    		lowerRow = 0;
+	    	}
+	    	displayHouses();
     	});
     
     
 //  Upper Row
     $( "#checkbox9" ).click(function() {
-    		$( ".delete-class" ).each(function(i, obj) {
-    			var htmlString = $(this).html();
-    			console.log(htmlString);
-    			if (htmlString.indexOf("Upper Row") <= 0) {
-    				$(this).toggle();
-    			}
-    		});
+	    	if(upperRow == 0) {
+	    		upperRow = 1;
+	    	} else {
+	    		upperRow = 0;
+	    	}
+	    	displayHouses();
     	});
     
     
 //  Lake Houses
     $( "#checkbox10" ).click(function() {
-    		$( ".delete-class" ).each(function(i, obj) {
-    			var htmlString = $(this).html();
-    			if (htmlString.indexOf("Lake House") <= 0) {
-    				$(this).toggle();
-    			}
-    		});
+	    	if(lakeHouses == 0) {
+	    		lakeHouses = 1;
+	    	} else {
+	    		lakeHouses = 0;
+	    	}
+	    	displayHouses();
     	});
     
     
 //  Cowell Cluster
     $( "#checkbox11" ).click(function() {
-    		$( ".delete-class" ).each(function(i, obj) {
-    			var htmlString = $(this).html();
-    			if (htmlString.indexOf("Cowell Cluster") <= 0) {
-    				$(this).toggle();
-    			}
-    		});
+	    	if(cowellCluster == 0) {
+	    		cowellCluster = 1;
+	    	} else {
+	    		cowellCluster = 0;
+	    	}
+//	    	console.log("inside cowell");
+	    	displayHouses();
     	});
 });

@@ -9,10 +9,12 @@ public class Comment {
 	public String text;
 	public Time creationTime;
 	
-	Comment(String username, String houseName, String text) {
+	public Comment(String username, String houseName, String text) {
 		this.username = username;
 		this.houseName = houseName;
 		this.text = text;
 	}
 	
 }
+
+

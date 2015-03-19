@@ -38,6 +38,11 @@
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
+	<!-- Ratings Stars -->
+	<link rel="stylesheet" href="css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/star-rating.js" type="text/javascript"></script>
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -66,17 +71,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- <li>
+                    <li>
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="about.html">The Draw</a>
                     </li>
                     <li>
-                        <a href="post.html">Sample Post</a>
-                    </li> -->
+                        <a href="post.html">About</a>
+                    </li> 
                     <li>
-                        <a href="contact.html">My Account</a>
+                        <a href="contact.html">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -101,11 +106,15 @@
         </div>
     </header>
 
+	<br>
     <article id="summary">
          <div class="container">
             <!-- <div class="row"> -->
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div>
+                    <form>
+   						 <input id="input-21f" value="0" type="number" min=0 max=5 step=0.1 data-size="md" >
+   					</form>
                         <div class="icon"><img src="img/tier-icon.png">&nbsp <%= house.tier%></div>
                         <div class="icon"><img src="img/house-icon.png">&nbsp <%= house.houseType%></div>
                         <div class="icon"><img src="img/residents-icon.png">&nbsp <%= house.numResidents%></div>
@@ -141,7 +150,7 @@
          <div class="container">
             <!-- <div class="row"> -->
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <h3>Reviews</h3><br>
+                    <h3 class="test">Reviews</h3><br>
 
                     <div class="desc-title" align="center">Summary</div>
                     <div class="desc-text" id="star-align">Community<img src="img/stars.jpg" align="right"><br>Food<img src="img/stars.jpg" align="right"><br>Location<img src="img/stars.jpg" align="right"><br>Overall<img src="img/stars.jpg" align="right"></div>
@@ -160,10 +169,13 @@
                         <label>User</label>
                         <input type="text" class="form-control" name="username" id="inputEmail" placeholder="Your Name">
                     </div>
+                     <label>Comment</label>
                     <div class="form-group">
-                        <label>Comment</label>
-                        <input type="text" class="form-control" name="commentText" id="inputPassword" placeholder="Write Comment">
-                    </div>
+                     
+                        <textarea style="max-height:300px">Hello World</textarea>
+                        
+                   </div>
+                   
                     <div class="checkbox">
                         Community<img src="img/empty-stars.jpg">
                         Food<img src="img/empty-stars.jpg">
@@ -198,7 +210,13 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
-
+	
+	<!-- Star Ratings JavaScript -->
+	
 </body>
 
+	<script src='js/autosize.js'></script>
+	<script>
+		autosize(document.querySelectorAll('textarea'));
+	</script>
 </html>

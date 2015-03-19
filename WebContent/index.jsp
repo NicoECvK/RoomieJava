@@ -58,7 +58,7 @@
                         <ul>
                         	<li>
                                   <div class="checkbox checkbox-danger">
-                                    <input type="checkbox" id="checkbox1">
+                                    <input type="checkbox" id="checkbox1" disabled>
                                     <label for="checkbox1">
                                         Dorms
                                     </label>
@@ -68,7 +68,7 @@
 
                              <li>
                                   <div class="checkbox checkbox-danger">
-                                    <input type="checkbox" id="checkbox2">
+                                    <input type="checkbox" id="checkbox2" disabled>
                                     <label for="checkbox2">
                                       Apartments 
                                     </label>
@@ -122,7 +122,7 @@
 
                             <li>
                                   <div class="checkbox checkbox-danger">
-                                    <input type="checkbox" id="checkbox7">
+                                    <input type="checkbox" id="checkbox7" disabled>
                                     <label for="checkbox7">
                                      Tier 3 
                                     </label>
@@ -302,13 +302,13 @@
     	%>
             
                 
-                <!-- Pager -->
+                <!-- Pager 
                 <ul class="pager">
                     <li class="next">
                         <a href="#">Older Posts &rarr;</a>
                     </li>
                 </ul>
-            </div>
+            --></div>
         </div>
     </div>
 

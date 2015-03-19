@@ -17,7 +17,7 @@
         return;
     }
     String imageFileName = house.imageFileName; 
-    ArrayList<Comment> comments = dbInteractor.searchCommentByHouseName(houseName);%>
+    ArrayList<Comment> comments = dbInteractor.searchCommentByHouseName(houseName); %>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -154,14 +154,15 @@
                     <br><div class="text_line"></div>
                     
 
-                    <form>
+                    <form action="/Roomie/WriteCommentServlet" method="POST">
+                    <input type="hidden" name="houseName" value="\"" + <%= houseName %> + "\"">
                     <div class="form-group">
-                        <label for="inputEmail">User</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <label>User</label>
+                        <input type="text" class="form-control" name="username" id="inputEmail" placeholder="Your Name">
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword">Comment</label>
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        <label>Comment</label>
+                        <input type="text" class="form-control" name="commentText" id="inputPassword" placeholder="Write Comment">
                     </div>
                     <div class="checkbox">
                         Community<img src="img/empty-stars.jpg">

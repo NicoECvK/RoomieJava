@@ -37,6 +37,10 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/FilterFunctionality.js"></script>
+    
 
 </head>
 
@@ -72,6 +76,7 @@
                             </li>
 
                             <li>
+                           
                                   <div class="checkbox checkbox-danger">
                                     <input type="checkbox" id="checkbox3">
                                     <label for="checkbox3">
@@ -81,6 +86,7 @@
                             </li>
                             
                             <li>
+                            
                                   <div class="checkbox checkbox-danger">
                                     <input type="checkbox" id="checkbox4">
                                     <label for="checkbox4">
@@ -127,11 +133,44 @@
                 </li>
                 <li>
                     <a href="#">Location</a>
-                    <!-- <div class="sub-filters">
+                     <div class="sub-filters">
                         <ul>
-                            <li>East Campus</li>
-                            <li>West Campus</li>
-                    </div> -->
+                            <li>
+                                  <div class="checkbox checkbox-danger">
+                                    <input type="checkbox" id="checkbox8">
+                                    <label for="checkbox8">
+                                        Lower Row
+                                    </label>
+                                  </div>
+                            </li>
+                            
+                            <li>
+                                  <div class="checkbox checkbox-danger">
+                                    <input type="checkbox" id="checkbox9">
+                                    <label for="checkbox9">
+                                        Upper Row
+                                    </label>
+                                  </div>
+                            </li>
+                            
+                            <li>
+                                  <div class="checkbox checkbox-danger">
+                                    <input type="checkbox" id="checkbox10">
+                                    <label for="checkbox10">
+                                        Lake Houses
+                                    </label>
+                                  </div>
+                            </li>
+                            
+                            <li>
+                                  <div class="checkbox checkbox-danger">
+                                    <input type="checkbox" id="checkbox11">
+                                    <label for="checkbox11">
+                                        Cowell Cluster
+                                    </label>
+                                  </div>
+                            </li>
+                    </div> 
                 </li>
                 <li>
                     <a href="#">Theme</a>
@@ -223,6 +262,7 @@
     <jsp:include page = 'header.jsp' />
     <div class="container">
             
+            <!--  out.print("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>"); -->
         <div class="row">
         	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         
@@ -233,21 +273,31 @@
     		String houseName = house.houseName;
     		String printName = houseName;
     		if(printName.equals("La Maison Francaise")) printName = "La Maison Française";
+    		String thumbName = house.thumbFileName;
+    		String imageName = house.imageFileName;
+    		String address = house.address;
+    		String houseType = house.houseType;
+    		String location = house.location;
+    		String tier = house.tier;
+    		System.out.println(location);
     		
+    		out.print("<div class=\"delete-class\">");
     		out.print("<div class=\"post-preview\">");
     		out.print("<a href=\"HouseProfile.jsp?houseName=" + houseName + "\">");
-    		out.print("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>");
-    		System.out.println("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>");
+    		out.print("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + thumbName + "\"></div>");
     		out.print("<h2 class=\"post-title\">");
     		out.print(printName);
     		out.print("</h2>");
     		out.print("<h3 class=\"post-subtitle\">");
-    		out.print("Problems look mighty small from 150 miles up");
+    		out.print(address);
     		out.print("</h3>");
     		out.print("</a>");
-    		out.print("<p class=\"post-meta\">Posted by <a href=\"#\">Start Bootstrap</a> on September 24, 2014</p>");
+    		out.print("<p class=\"post-meta\">" + houseType + "</p>");
     		out.print("</div>");
     		out.print("<hr>");
+    		out.print("<input type=\"hidden\" value=\"" + location + "\">");
+    		out.print("<input type=\"hidden\" value=\"Tier " + tier + "\">");
+    		out.print("</div>");
     	}
     	%>
             

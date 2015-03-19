@@ -41,7 +41,7 @@ $( document ).ready(function() {
 				houseTypeObj[id] = true;
 			}
 		});
-		console.log(houseTypeObj);
+		console.log("houseObj: " + houseTypeObj);
 		return houseTypeObj;
 	}
 	
@@ -91,7 +91,7 @@ $( document ).ready(function() {
 				locationObj[id] = true;
 			}
 		});
-//		console.log(locationObj);
+		console.log("locationObj: " + locationObj);
 		return locationObj;
 	}
 	
@@ -109,6 +109,7 @@ $( document ).ready(function() {
 				finalObj[id] = true;
 			}
 		});
+		console.log("final obj: " + finalObj);
 		return finalObj;
 	}
 	

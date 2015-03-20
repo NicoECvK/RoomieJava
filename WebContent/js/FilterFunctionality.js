@@ -28,6 +28,9 @@ $( document ).ready(function() {
 		$( ".delete-class" ).each(function(i, obj) {
 			var id = this.id;
 			var htmlString = $(this).html();
+			if(dorms == 0 && apartments == 0 && selfOps == 0 && coOps == 0) {
+				houseTypeObj[id] = true;
+			}
 			if (dorms && htmlString.indexOf("Dorm") >= 0) {
 				houseTypeObj[id] = true;
 			}
@@ -41,7 +44,6 @@ $( document ).ready(function() {
 				houseTypeObj[id] = true;
 			}
 		});
-		console.log("houseObj: " + houseTypeObj);
 		return houseTypeObj;
 	}
 	
@@ -52,6 +54,9 @@ $( document ).ready(function() {
 		$( ".delete-class" ).each(function(i, obj) {
 			var id = this.id;
 			var htmlString = $(this).html();
+			if(tier1 == 0 && tier2 == 0 && tier3 == 0) {
+				tierObj[id] = true;
+			}
 			if (tier1 && htmlString.indexOf("Tier 1") >= 0) {
 				tierObj[id] = true;
 			}
@@ -62,7 +67,6 @@ $( document ).ready(function() {
 				tierObj[id] = true;
 			}
 		});
-		console.log("tierObj: " + tierObj);
 		return tierObj;
 	}
 	
@@ -73,7 +77,9 @@ $( document ).ready(function() {
 		$( ".delete-class" ).each(function(i, obj) {
 			var id = this.id;
 			var htmlString = $(this).html();
-//			console.log("lower row: " + lowerRow);
+			if(lowerRow == 0 && upperRow == 0 && lakeHouses == 0 && cowellCluster == 0) {
+				locationObj[id] = true;
+			}
 			if (lowerRow && htmlString.indexOf("Lower Row") >= 0) {
 				console.log("inside lower row for: " + id);
 				locationObj[id] = true;
@@ -91,7 +97,6 @@ $( document ).ready(function() {
 				locationObj[id] = true;
 			}
 		});
-		console.log("locationObj: " + locationObj);
 		return locationObj;
 	}
 	
@@ -100,7 +105,6 @@ $( document ).ready(function() {
 		var houseTypeObj = createHouseTypeObj();
 		var tierObj = createTierObj();
 		var locationObj = createLocationObj();
-		console.log("HI");
 		var finalObj = {};
 		$( ".delete-class" ).each(function(i, obj) {
 			var id = this.id;
@@ -109,33 +113,16 @@ $( document ).ready(function() {
 				finalObj[id] = true;
 			}
 		});
-		console.log("final obj: " + finalObj);
 		return finalObj;
 	}
 	
 	
 	function displayHouses() {
-//		displayLocation();
 		var finalObj = createFinalObj();
 		$( ".delete-class" ).each(function(i, obj) {
 			$(this).hide();
 			var id = this.id;
 			if(finalObj[id]) {
-				$(this).show();
-			}
-		});
-	}
-	
-	
-	function displayLocation() {
-		var locationObj = createLocationObj();
-		console.log(locationObj);
-		$( ".delete-class" ).each(function(i, obj) {
-			$(this).hide();
-			var id = this.id;
-//			console.log(id);
-			if(locationObj[id]) {
-				console.log(id + "was found");
 				$(this).show();
 			}
 		});
@@ -259,7 +246,6 @@ $( document ).ready(function() {
 	    	} else {
 	    		cowellCluster = 0;
 	    	}
-//	    	console.log("inside cowell");
 	    	displayHouses();
     	});
 });

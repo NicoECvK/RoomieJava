@@ -303,6 +303,29 @@ $( document ).ready(function() {
         <div class="row">
         	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
+		<div class="landing-page delete-class" id="roomie-description">
+        		 <h4 class="cursive">A Guide to the Stanford Draw</h4>
+	        	<form>
+	        		 <fieldset>
+	        		<br>Where are you living this year?
+	        			<input class="textfield" type = 'text' name='userfound' placeholder='House Name'><br>
+	        			<input type="checkbox"> Allow friends to see where I am living
+					 </fieldset>
+	        		<br><br>
+	        		
+	        		Community
+	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
+	        		Food
+	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
+		        	Location
+		        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
+		        	
+		        	Overall
+	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
+	        		
+	        	</form>
+        	</div>
+
         <% ServletContext context = request.getServletContext();
     	DatabaseInteractor dbInteractor = (DatabaseInteractor) context.getAttribute("dbInteractor");
     	ArrayList<House> allHouses = dbInteractor.getAllHouses();

@@ -19,7 +19,7 @@ $( document ).ready(function() {
 	$( ".delete-class" ).each(function(i, obj) {
 		$(this).hide();
 	});
-	
+	$("#roomie-description").show();
 	
 	
 	// Returns an object with the names of all of the houses that fit into on of the checked categories.
@@ -126,6 +126,7 @@ $( document ).ready(function() {
 				tier1 == 0 && tier2 == 0 && tier3 == 0 && lowerRow == 0 && upperRow == 0 && lakeHouses == 0 && cowellCluster == 0) {
 			$( ".delete-class" ).each(function(i, obj) {
 				$(this).hide();
+				$("#roomie-description").show();
 			});
 		}
 	}

@@ -293,8 +293,8 @@ $( document ).ready(function() {
             <!--  out.print("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>"); -->
         <div class="row">
         	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        	
-        	<div class="landing-page">
+
+		<div class="landing-page delete-class" id="roomie-description">
         		 <h4 class="cursive">A Guide to the Stanford Draw</h4>
 	        	<form>
 	        		 <fieldset>
@@ -318,7 +318,7 @@ $( document ).ready(function() {
 	        		
 	        		</form>
         	</div>
-        
+
         <% ServletContext context = request.getServletContext();
     	DatabaseInteractor dbInteractor = (DatabaseInteractor) context.getAttribute("dbInteractor");
     	ArrayList<House> allHouses = dbInteractor.getAllHouses();

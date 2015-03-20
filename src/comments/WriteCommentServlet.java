@@ -13,7 +13,7 @@ import databaseInteractor.DatabaseInteractor;
 /**
  * Servlet implementation class WriteCommentServlet
  */
-@WebServlet("/WriteCommentServlet")
+@WebServlet(name = "WriteCommentServlet", urlPatterns = {"/WriteCommentServlet"})
 public class WriteCommentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,7 +29,16 @@ public class WriteCommentServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("inside servlet");
+		DatabaseInteractor dbInteractor = (DatabaseInteractor) getServletContext().getAttribute("dbInteractor");
+		String username = request.getParameter("username");
+		username = "Nico Test";
+		String houseName = request.getParameter("houseName");
+		String commentText = request.getParameter("commentText");
+		Comment comment = new Comment(username, houseName, commentText);
+		
+		dbInteractor.insertComment(comment);
+		request.getRequestDispatcher("HouseProfile.jsp?houseName=" + houseName).forward(request, response);
 	}
 
 	/**
@@ -39,11 +48,13 @@ public class WriteCommentServlet extends HttpServlet {
 		System.out.println("inside servlet");
 		DatabaseInteractor dbInteractor = (DatabaseInteractor) getServletContext().getAttribute("dbInteractor");
 		String username = request.getParameter("username");
+		username = "Nico Test";
 		String houseName = request.getParameter("houseName");
 		String commentText = request.getParameter("commentText");
 		Comment comment = new Comment(username, houseName, commentText);
 		
 		dbInteractor.insertComment(comment);
+		request.getRequestDispatcher("HouseProfile.jsp?houseName=" + houseName).forward(request, response);
 	}
 
 }

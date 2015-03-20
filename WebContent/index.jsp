@@ -279,9 +279,8 @@
     		String houseType = house.houseType;
     		String location = house.location;
     		String tier = house.tier;
-    		System.out.println(location);
     		
-    		out.print("<div class=\"delete-class\">");
+    		out.print("<div class=\"delete-class\" id=\"" + houseName + "\">");
     		out.print("<div class=\"post-preview\">");
     		out.print("<a href=\"HouseProfile.jsp?houseName=" + houseName + "\">");
     		out.print("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + thumbName + "\"></div>");

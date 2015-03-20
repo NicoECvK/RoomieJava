@@ -112,7 +112,7 @@
             <!-- <div class="row"> -->
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div>
-                    
+
                         <div class="icon"><img src="img/tier-icon.png">&nbsp <%= house.tier%></div>
                         <div class="icon"><img src="img/house-icon.png">&nbsp <%= house.houseType%></div>
                         <div class="icon"><img src="img/residents-icon.png">&nbsp <%= house.numResidents%></div>
@@ -171,12 +171,6 @@
                         
                    </div>
                    
-                    <div class="checkbox">
-                        Community<img src="img/empty-stars.jpg">
-                        Food<img src="img/empty-stars.jpg">
-                        Location<img src="img/empty-stars.jpg">
-                        Overall<img src="img/empty-stars.jpg">
-                    </div>
                     <input id="commentButton" type="submit" onclick="writeComment()" class="btn btn-primary" value="Post">
                 </form>
                 

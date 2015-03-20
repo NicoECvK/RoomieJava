@@ -16,9 +16,9 @@ $( document ).ready(function() {
 	var lakeHouses = 0;
 	var cowellCluster = 0;
 	
-//	$( ".delete-class" ).each(function(i, obj) {
-//		$(this).hide();
-//	});
+	$( ".delete-class" ).each(function(i, obj) {
+		$(this).hide();
+	});
 	
 	
 	
@@ -127,7 +127,7 @@ $( document ).ready(function() {
 			}
 		});
 		if(dorms == 0 && apartments == 0 && selfOps == 0 && coOps == 0 && 
-				tier1 == 0 && tier2 == 0 && tier3 == 0 && lowerRow == 0 && upperRow == 0 && lakeHosues == 0 && cowellCluster == 0) {
+				tier1 == 0 && tier2 == 0 && tier3 == 0 && lowerRow == 0 && upperRow == 0 && lakeHouses == 0 && cowellCluster == 0) {
 			console.log("nothing checked");
 			$( ".delete-class" ).each(function(i, obj) {
 				$(this).hide();

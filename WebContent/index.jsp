@@ -44,7 +44,38 @@
 
 </head>
 
-<body>
+<body><!--
+
+$( document ).ready(function() {
+		$( ".checkbox" ).each(function(i, obj) {
+			console.log("inside checkbox js");
+			this.prop('checked', false);
+		});
+	
+	});
+
+	--><script>
+
+	// http://www.mrc-productivity.com/techblog/?p=1235
+	$(document).ready(function()
+	        {
+	                var d = new Date();
+	                d = d.getTime();
+	                if ($('#reloadValue').val().length == 0)
+	                {
+	                        $('#reloadValue').val(d);
+	                        $('body').show();
+	                }
+	                else
+	                {
+	                        $('#reloadValue').val('');
+	                        location.reload();
+	                }
+	        });
+
+	</script>
+	
+	<input id="reloadValue" type="hidden" name="reloadValue" value="" />
 
     <div id="wrapper">
         <!-- Sidebar -->

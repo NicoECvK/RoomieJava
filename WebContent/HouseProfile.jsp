@@ -166,11 +166,13 @@
                     <br><div class="text_line"></div>
                     
 
-                    <form action="/Roomie/WriteCommentServlet" method="POST">
+                    <form action="/Roomie/comments/WriteCommentServlet" method="POST">
                     <input type="hidden" name="houseName" value="\"" + <%= houseName %> + "\"">
+
                      <label>Comment</label>
                     <div class="form-group">
-                        <textarea class="comment-box" style="max-height:300px">Hello World</textarea>
+                        <textarea class="comment-box" style="max-height:300px id="commentText"">Hello World</textarea>
+
                         
                    </div>
                    
@@ -180,9 +182,17 @@
                         Location<img src="img/empty-stars.jpg">
                         Overall<img src="img/empty-stars.jpg">
                     </div>
-                    <button type="submit" class="btn btn-primary">Post</button>
+                    <input id="commentButton" type="submit" onclick="writeComment()" class="btn btn-primary" value="Post">
                 </form>
-                </div>
+                
+                <!--<form action="/Test" method="POST">
+                	<input type="submit" value="send request">
+                </form>
+                <form action="/WriteCommentServlet" name="yourForm" id="theForm" method="post">    
+				    <input type="text" name="fname" id="fname" />    
+				    <input type="submit" value="submit"/>
+				</form>
+                --></div>
             <!-- </div> -->
         </div>
     </article>
@@ -209,7 +219,8 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
 	
-	<!-- Star Ratings JavaScript -->
+	<!-- Write Comment -->
+	<script src="js/WriteComment.js"></script>
 	
 </body>
 

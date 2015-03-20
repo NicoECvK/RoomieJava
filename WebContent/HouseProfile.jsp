@@ -112,12 +112,7 @@
             <!-- <div class="row"> -->
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div>
-                    <form>
-        		 <input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
-        	<input id="input-2d" class="rating" min="0" max="5" step="0.5" data-size="sm"
-           data-symbol="&#xf0fc;" data-glyphicon="false" data-rating-class="rating-fa" data-default-caption="{rating} drinks" data-star-captions="{}">
-        	
-        	</form>
+                    
                         <div class="icon"><img src="img/tier-icon.png">&nbsp <%= house.tier%></div>
                         <div class="icon"><img src="img/house-icon.png">&nbsp <%= house.houseType%></div>
                         <div class="icon"><img src="img/residents-icon.png">&nbsp <%= house.numResidents%></div>
@@ -171,7 +166,7 @@
 
                      <label>Comment</label>
                     <div class="form-group">
-                        <textarea class="comment-box" style="max-height:300px id="commentText"">Hello World</textarea>
+                        <textarea class="comment-box" style="max-height:300px" id="commentText">Hello World</textarea>
 
                         
                    </div>

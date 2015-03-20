@@ -304,18 +304,19 @@ $( document ).ready(function() {
 					 </fieldset>
 	        		<br><br>
 	        		
+	        		Community
 	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa" />
 	        		
-	        		Community
-	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
 	        		Food
 	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
-		        	Location
-		        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
-		        	
+	        		
+					Location
+	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
+		        
 		        	Overall
 	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
 	        		
+	        		<br><input id="commentButton" type="submit" class="btn btn-primary" value="Save">
 	        		</form>
         	</div>
 

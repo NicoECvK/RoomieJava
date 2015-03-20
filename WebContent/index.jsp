@@ -259,7 +259,7 @@
     </header>
 
     <!-- Main Content -->
-    <jsp:include page = 'header.jsp' />
+    <div class = 'headerWrapper-index'></div>
     <div class="container">
             
             <!--  out.print("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>"); -->
@@ -314,7 +314,7 @@
     <hr>
 
     <!-- Footer -->
-    <footer>
+    <footer class="copyright">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

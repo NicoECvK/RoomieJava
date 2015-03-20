@@ -112,7 +112,7 @@
             <!-- <div class="row"> -->
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div>
- 
+
                         <div class="icon"><img src="img/tier-icon.png">&nbsp <%= house.tier%></div>
                         <div class="icon"><img src="img/house-icon.png">&nbsp <%= house.houseType%></div>
                         <div class="icon"><img src="img/residents-icon.png">&nbsp <%= house.numResidents%></div>
@@ -166,7 +166,7 @@
 
                      <label>Comment</label>
                     <div class="form-group">
-                        <textarea class="comment-box" style="max-height:300px id="commentText"">Hello World</textarea>
+                        <textarea class="comment-box" style="max-height:300px" id="commentText">Hello World</textarea>
 
                         
                    </div>

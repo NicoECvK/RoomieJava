@@ -296,8 +296,12 @@ $( document ).ready(function() {
             <!--  out.print("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>"); -->
         <div class="row">
         	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        	<!--<form action="/WriteCommentServlet" name="yourForm" id="theForm" method="get">    
+				    <input type="text" name="fname" id="fname" />    
+				    <input type="submit" value="submit"/>
+				</form>
         
-        <% ServletContext context = request.getServletContext();
+        --><% ServletContext context = request.getServletContext();
     	DatabaseInteractor dbInteractor = (DatabaseInteractor) context.getAttribute("dbInteractor");
     	ArrayList<House> allHouses = dbInteractor.getAllHouses();
     	for(House house : allHouses) {

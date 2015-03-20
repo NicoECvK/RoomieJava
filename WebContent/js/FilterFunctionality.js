@@ -81,19 +81,15 @@ $( document ).ready(function() {
 				locationObj[id] = true;
 			}
 			if (lowerRow && htmlString.indexOf("Lower Row") >= 0) {
-				console.log("inside lower row for: " + id);
 				locationObj[id] = true;
 			}
 			if (upperRow && htmlString.indexOf("Upper Row") >= 0) {
-				console.log("inside upper row for: " + id);
 				locationObj[id] = true;
 			} 
 			if (lakeHouses && htmlString.indexOf("Lake House") >= 0) {
-				console.log("inside lake house for: " + id);
 				locationObj[id] = true;
 			}
 			if (cowellCluster && htmlString.indexOf("Cowell Cluster") >= 0) {
-				console.log("inside cowell cluster for: " + id);
 				locationObj[id] = true;
 			}
 		});
@@ -128,7 +124,6 @@ $( document ).ready(function() {
 		});
 		if(dorms == 0 && apartments == 0 && selfOps == 0 && coOps == 0 && 
 				tier1 == 0 && tier2 == 0 && tier3 == 0 && lowerRow == 0 && upperRow == 0 && lakeHouses == 0 && cowellCluster == 0) {
-			console.log("nothing checked");
 			$( ".delete-class" ).each(function(i, obj) {
 				$(this).hide();
 			});

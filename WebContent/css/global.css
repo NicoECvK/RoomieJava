@@ -24,6 +24,15 @@ h5{
 	color:#FCFAE6;
 	line-height:40px;
 	padding:10px 20px;
+	xmargin-bottom: 50px;
+}
+
+.headerWrapper-index {
+	height: 62px;
+	background-color: #901808;
+	color:#FCFAE6;
+	line-height:40px;
+	padding:10px 20px;
 	margin-bottom: 50px;
 }
 

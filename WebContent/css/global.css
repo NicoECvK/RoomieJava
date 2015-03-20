@@ -27,18 +27,8 @@ h5{
 	margin-bottom: 50px;
 }
 
-.footer{
-	height: 45px;
-	background-color: #C5E2E9;
-	 line-height:40px;
-	padding:10px 20px;
-	text-align:center;
-	margin-top:50px;
-	color:#901808;
-}
-
 .headerWrapper a{
-	color:white;
+	color:#FCFAE6;
 }
 
 .headerSearchBar {
@@ -67,5 +57,24 @@ h5{
 .logout{
 	float:right;
 	padding-top:8px;
+}
+
+.cursive{
+	font: 400 70px/0.8 'Cookie', Helvetica, sans-serif;
+  	color: #444444;
+}
+
+.loginBox {
+	background-color: #FCFAE6;
+	x width: 200px;
+	height: 150px;	
+	padding: 30px;
+	box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+	x border: 1px solid black;
+}
+
+.loginField {
+	margin: 5px 0;
+	padding: 4px;
 }
 

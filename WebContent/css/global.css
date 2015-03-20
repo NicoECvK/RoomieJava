@@ -87,3 +87,30 @@ h5{
 	padding: 4px;
 }
 
+.fa fa-facebook{
+	width:300px;
+	background-color:blue;	
+	xtext-transform: lowercase!important;
+}
+
+.btn-facebook {
+	width:300px;
+	color: #fff;
+	background-color: #3b5998;
+	border-color: rgba(0,0,0,0.2);
+	xtext-transform: lowercase!important;
+}
+
+.btn-social {
+	width:300px;
+	position: relative;
+	padding-left: 44px;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.comment-box{
+	width:500px;
+}

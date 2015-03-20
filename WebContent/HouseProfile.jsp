@@ -113,8 +113,11 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div>
                     <form>
-   						 <input id="input-21f" value="0" type="number" min=0 max=5 step=0.1 data-size="md" >
-   					</form>
+        		 <input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
+        	<input id="input-2d" class="rating" min="0" max="5" step="0.5" data-size="sm"
+           data-symbol="&#xf0fc;" data-glyphicon="false" data-rating-class="rating-fa" data-default-caption="{rating} drinks" data-star-captions="{}">
+        	
+        	</form>
                         <div class="icon"><img src="img/tier-icon.png">&nbsp <%= house.tier%></div>
                         <div class="icon"><img src="img/house-icon.png">&nbsp <%= house.houseType%></div>
                         <div class="icon"><img src="img/residents-icon.png">&nbsp <%= house.numResidents%></div>
@@ -165,14 +168,9 @@
 
                     <form action="/Roomie/WriteCommentServlet" method="POST">
                     <input type="hidden" name="houseName" value="\"" + <%= houseName %> + "\"">
-                    <div class="form-group">
-                        <label>User</label>
-                        <input type="text" class="form-control" name="username" id="inputEmail" placeholder="Your Name">
-                    </div>
                      <label>Comment</label>
                     <div class="form-group">
-                     
-                        <textarea style="max-height:300px">Hello World</textarea>
+                        <textarea class="comment-box" style="max-height:300px">Hello World</textarea>
                         
                    </div>
                    

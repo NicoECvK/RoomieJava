@@ -5,7 +5,13 @@
  */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-html {
+
+/*.glyphicon {
+   font-family:'Glyphicons Halflings' !important;
+   // more css comes along here
+}
+
+*/html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;

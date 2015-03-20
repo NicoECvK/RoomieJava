@@ -21,15 +21,21 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+	<!-- Ratings Stars -->
+	<link rel="stylesheet" href="css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/star-rating.js" type="text/javascript"></script>
+    
     <!-- Custom CSS -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
     <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/awesome-bootstrap-checkbox.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-	<link href="css/awesome-bootstrap-checkbox.css" rel="stylesheet">
+	 <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -271,7 +277,7 @@ $( document ).ready(function() {
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+    <header class="intro-header">
         <div class="container">
             <div class="nav-bar"></div>
 
@@ -296,6 +302,29 @@ $( document ).ready(function() {
             <!--  out.print("<div class=\"thumb-house\"><img src=\"img/houses-thumb/" + houseName + "-thumb.jpg\"></div>"); -->
         <div class="row">
         	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        	
+        	<div class="landing-page">
+        		 <h4 class="cursive">A Guide to the Stanford Draw</h4>
+	        	<form>
+	        		 <fieldset>
+	        		<br>Where are you living this year?
+	        			<input class="textfield" type = 'text' name='userfound' placeholder='House Name'><br>
+	        			<input type="checkbox"> Allow friends to see where I am living
+					 </fieldset>
+	        		<br><br>
+	        		
+	        		Community
+	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
+	        		Food
+	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
+		        	Location
+		        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
+		        	
+		        	Overall
+	        		<input id="input-2c" class="rating" min="0" max="5" step="0.5" data-size="xs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa">
+	        		
+	        	</form>
+        	</div>
         
         <% ServletContext context = request.getServletContext();
     	DatabaseInteractor dbInteractor = (DatabaseInteractor) context.getAttribute("dbInteractor");

@@ -12,9 +12,15 @@
  
  <!-- Custom CSS -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
  
  <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Ratings Stars -->
+	<link rel="stylesheet" href="css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/star-rating.js" type="text/javascript"></script>
     
     
 
@@ -22,7 +28,7 @@
 </head>
 <body>
 
-<script>
+<script><!--
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -115,6 +121,36 @@
     });
   }
 
+  // http://stackoverflow.com/questions/9810335/how-to-change-facebook-login-button-with-my-custom-image
+  function FBlogin(){
+	    FB.login(function(response) {
+
+	        if (response.authResponse) {
+	            console.log('Welcome!  Fetching your information.... ');
+	            //console.log(response); // dump complete info
+	            access_token = response.authResponse.accessToken; //get access token
+	            user_id = response.authResponse.userID; //get FB UID
+
+	            FB.api('/me', function(response) {
+	                user_email = response.email; //get user email
+	          // you can store this data into your database             
+	            });
+
+	        } else {
+	            //user hit cancel button
+	            console.log('User cancelled login or did not fully authorize.');
+
+	        }
+	    }, {
+	        scope: 'public_profile,email,user_friends'
+	    });
+	}
+	(function() {
+	    var e = document.createElement('script');
+	    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+	    e.async = true;
+	    document.getElementById('fb-root').appendChild(e);
+	}());
 
 </script>
 
@@ -123,7 +159,7 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             	
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right"><!--
                      <li>
                         <a href="index.html">Home</a>
                     </li>
@@ -136,11 +172,11 @@
                     	<li>
                         <a href="contact.html">Logout</a>
                     </li>
-                </ul>
+                --></ul>
             </div>
             <!-- /.navbar-collapse -->
 </div>	
-<div class="container" class="body-one">
+<div class="container">
 	
     <div class="row">
     
@@ -151,32 +187,37 @@
       </div>
 
       	<div class="col-md-2 col-md-offset-1" style="margin-top: 15%">
-<<<<<<< HEAD
+      	
+      	<a class="btn btn-block btn-social btn-facebook" onclick="FBlogin();">
+  		  <i class="fa fa-facebook"></i> Log in with Facebook
+ 		</a>
+		<br><p style="padding-left:140px">OR</p>
+		
 	      <div id="login-form">
 
-    <h3>Login</h3>
+		    <h3>Login</h3>
+		
+		    <fieldset>
+		
+		      <form action="javascript:void(0);" method="get">
+		
+		        <input type="email" required value="Email" onBlur="if(this.value=='')this.value='Email'" onFocus="if(this.value=='Email')this.value='' "> <!-- JS because of IE support; better: placeholder="Email" -->
+		
+		        <input type="password" required value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value='' "> <!-- JS because of IE support; better: placeholder="Password" -->
+		
+		        <input type="submit" value="Login">
+		
+		        <footer class="clearfix">
+		
+		          <p><span class="info">?</span><a href="#">Forgot Password</a></p>
+		
+		        </footer>
+		
+		      </form>
+		
+		    </fieldset>
 
-    <fieldset>
-
-      <form action="javascript:void(0);" method="get">
-
-        <input type="email" required value="Email" onBlur="if(this.value=='')this.value='Email'" onFocus="if(this.value=='Email')this.value='' "> <!-- JS because of IE support; better: placeholder="Email" -->
-
-        <input type="password" required value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value='' "> <!-- JS because of IE support; better: placeholder="Password" -->
-
-        <input class="red-button" type="submit" value="Login">
-
-        <footer class="clearfix">
-
-          <p><span class="info">?</span><a href="#">Forgot Password</a></p>
-
-        </footer>
-
-      </form>
-
-    </fieldset>
-
-  </div> <!-- end login-form -->
+  		</div> <!-- end login-form -->
 
 			<!-- End login box -->
 		
@@ -187,6 +228,7 @@
 
     
 </div>
+
 </body>
 	    <!-- Footer -->
 	    <br><br><hr>

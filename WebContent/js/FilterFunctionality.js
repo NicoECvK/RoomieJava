@@ -16,9 +16,9 @@ $( document ).ready(function() {
 	var lakeHouses = 0;
 	var cowellCluster = 0;
 	
-	$( ".delete-class" ).each(function(i, obj) {
-		$(this).hide();
-	});
+//	$( ".delete-class" ).each(function(i, obj) {
+//		$(this).hide();
+//	});
 	
 	
 	
